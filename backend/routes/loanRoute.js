@@ -17,10 +17,10 @@ router.post("/", async (req, res) => {
 
 router.get("/", async (req, res) => {
   try {
-    const loans = await Loan.find();
-    res.json(loans);
+    const apps = await Loan.find().sort({ createdAt: -1 });
+    res.json(apps);
   } catch (err) {
-    res.status(500).json({ error: err.message });
+    res.status(500).json({ msg: "Error fetching applications" });
   }
 });
 

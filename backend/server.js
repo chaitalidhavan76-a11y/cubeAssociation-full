@@ -4,6 +4,9 @@ import cors from "cors";
 import dotenv from "dotenv";
 import loanRoutes from "./routes/loanRoute.js";
 import contactRoutes from "./routes/contactRoute.js"; 
+import adminRoutes from "./routes/adminRoutes.js";
+import dashboardRoutes from "./routes/dashboardRoutes.js";
+
 
 dotenv.config();
 
@@ -18,7 +21,11 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 app.use("/api/loans", loanRoutes);
-app.use("/api/contact", contactRoutes); 
+app.use("/api/contact", contactRoutes);
+app.use("/api/admin", adminRoutes); 
+app.use("/api/dashboard", dashboardRoutes);
+
+
 
 
 const PORT = process.env.PORT || 5000;

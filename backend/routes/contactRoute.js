@@ -22,4 +22,14 @@ router.post("/", async (req, res) => {
   }
 });
 
+// GET ALL CONTACT QUERIES
+router.get("/", async (req, res) => {
+  try {
+    const queries = await Contact.find().sort({ createdAt: -1 });
+    res.json(queries);
+  } catch (err) {
+    res.status(500).json({ msg: "Error fetching contacts" });
+  }
+});
+
 export default router;
