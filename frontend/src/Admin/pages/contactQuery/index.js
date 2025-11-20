@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import { FiSearch } from "react-icons/fi";
 import axios from "axios";
 
-export default function Queries() {
+const Queries=()=> {
   const [queries, setQueries] = useState([]);
   const [search, setSearch] = useState("");
 
-  const backendURL = "http://localhost:5000";
+  const backendURL = "https://win-association-full.onrender.com";
 
   useEffect(() => {
     loadQueries();
@@ -42,7 +42,7 @@ export default function Queries() {
 
       <div className="applications-top">
 
-        {/* SEARCH BAR ONLY */}
+ 
         <div className="search-wrapper">
           <FiSearch className="search-icon" />
           <input
@@ -89,3 +89,4 @@ export default function Queries() {
     </div>
   );
 }
+export default Queries;

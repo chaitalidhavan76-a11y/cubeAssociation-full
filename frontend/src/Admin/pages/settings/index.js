@@ -9,11 +9,9 @@ export default function Settings({ theme, setTheme }) {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const backendURL = "http://localhost:5000/api/admin";
+  const backendURL = "https://win-association-full.onrender.com/api/admin";
 
-  // -----------------------
-  // LOAD ADMIN PROFILE
-  // -----------------------
+
   useEffect(() => {
     const loadProfile = async () => {
       try {
@@ -32,9 +30,7 @@ export default function Settings({ theme, setTheme }) {
     loadProfile();
   }, []);
 
-  // -----------------------
-  // UPDATE PROFILE (EMAIL)
-  // -----------------------
+
   const handleUpdateProfile = async () => {
     try {
       const token = localStorage.getItem("adminToken");
@@ -51,9 +47,7 @@ export default function Settings({ theme, setTheme }) {
     }
   };
 
-  // -----------------------
-  // CHANGE PASSWORD
-  // -----------------------
+
   const handleChangePassword = async () => {
     if (newPassword !== confirmPassword) {
       alert("New passwords do not match");
@@ -81,7 +75,7 @@ export default function Settings({ theme, setTheme }) {
   return (
     <div className="applications-page">
 
-      {/* HEADER */}
+     
       <div className="settings-header">
         <h2 className="page-title">Settings</h2>
 
@@ -98,7 +92,7 @@ export default function Settings({ theme, setTheme }) {
         Manage your account and dashboard preferences.
       </p>
 
-      {/* PROFILE SECTION */}
+    
       <div className="settings-box">
         <h3 className="settings-title">Profile Information</h3>
 
@@ -117,7 +111,7 @@ export default function Settings({ theme, setTheme }) {
         </button>
       </div>
 
-      {/* PASSWORD SECTION */}
+      
       <div className="settings-box">
         <h3 className="settings-title">Change Password</h3>
 

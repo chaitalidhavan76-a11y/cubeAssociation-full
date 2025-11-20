@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 
 export default function Auth({ setAuth }) {
-  const [isLogin, setIsLogin] = useState(true); // toggle between login/register
+  const [isLogin, setIsLogin] = useState(true); 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -10,23 +10,23 @@ export default function Auth({ setAuth }) {
     e.preventDefault();
     try {
       if (isLogin) {
-        // LOGIN
-        const res = await axios.post("http://localhost:5000/api/admin/login", {
+        
+        const res = await axios.post("https://win-association-full.onrender.com/api/admin/login", {
           email,
           password,
         });
         localStorage.setItem("adminToken", res.data.token);
         setAuth(true);
       } else {
-        // REGISTER
-        const res = await axios.post("http://localhost:5000/api/admin/register", {
+        
+        const res = await axios.post("https://win-association-full.onrender.com/api/admin/register", {
           email,
           password,
         });
         alert(res.data.msg || "Admin registered successfully");
         setEmail("");
         setPassword("");
-        setIsLogin(true); // switch back to login after register
+        setIsLogin(true); 
       }
     } catch (err) {
       alert(isLogin ? "Invalid login details" : "Registration failed");

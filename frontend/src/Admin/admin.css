@@ -403,7 +403,7 @@ body.dark .applications-page {
   margin-bottom: 20px;
 }
 
-/* SEARCH BAR */
+
 .search-wrapper {
   width: 60%;
 }
@@ -422,7 +422,7 @@ body.dark .applications-page {
   background: #eef1f5;
 }
 
-/* FILTER BUTTONS */
+
 .filter-buttons {
   display: flex;
   gap: 12px;

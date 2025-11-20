@@ -10,12 +10,12 @@ export default function Sidebar({ setAuth }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path) => location.pathname.startsWith(path);
 
   const logoutAdmin = () => {
     localStorage.removeItem("adminToken");
     setAuth(false);
-    navigate("/login"); // cleaner than window.location.href
+    navigate("/admin/login"); 
   };
 
   return (
@@ -23,21 +23,23 @@ export default function Sidebar({ setAuth }) {
       <h2 className="sidebar-logo">Admin Dashboard</h2>
 
       <ul className="sidebar-menu">
-        <li className={isActive("/overview") ? "active" : ""}>
-          <Link to="/overview"><MdDashboard /> Overview</Link>
+
+        <li className={isActive("/admin/overview") ? "active" : ""}>
+          <Link to="/admin/overview"><MdDashboard /> Overview</Link>
         </li>
 
-        <li className={isActive("/applications") ? "active" : ""}>
-          <Link to="/applications"><RiFileList2Line /> Applications</Link>
+        <li className={isActive("/admin/applications") ? "active" : ""}>
+          <Link to="/admin/applications"><RiFileList2Line /> Applications</Link>
         </li>
 
-        <li className={isActive("/query") ? "active" : ""}>
-          <Link to="/query"><BiMessageDetail /> Queries</Link>
+        <li className={isActive("/admin/query") ? "active" : ""}>
+          <Link to="/admin/query"><BiMessageDetail /> Queries</Link>
         </li>
 
-        <li className={isActive("/settings") ? "active" : ""}>
-          <Link to="/settings"><FiSettings /> Settings</Link>
+        <li className={isActive("/admin/settings") ? "active" : ""}>
+          <Link to="/admin/settings"><FiSettings /> Settings</Link>
         </li>
+
       </ul>
 
       <div className="sidebar-footer" onClick={logoutAdmin}>

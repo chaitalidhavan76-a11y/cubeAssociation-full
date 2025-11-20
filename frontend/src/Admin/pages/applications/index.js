@@ -13,12 +13,12 @@ const loanTypes = [
   "Gold Loan",
 ];
 
-export default function Applications() {
+const Applications=()=> {
   const [apps, setApps] = useState([]);
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("All");
 
-  const backendURL = "http://localhost:5000";
+  const backendURL = "https://win-association-full.onrender.com";
 
   useEffect(() => {
     loadApps();
@@ -114,3 +114,4 @@ export default function Applications() {
     </div>
   );
 }
+export default Applications;

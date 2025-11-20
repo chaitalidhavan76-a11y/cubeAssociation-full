@@ -8,7 +8,7 @@ export default function Overview() {
   const [applications, setApplications] = useState([]);
   const [contacts, setContacts] = useState([]);
 
-  const backendURL = "http://localhost:5000";
+  const backendURL = "https://win-association-full.onrender.com";
 
   useEffect(() => {
     fetchData();
